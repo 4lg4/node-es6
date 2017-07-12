@@ -2,13 +2,12 @@
     "name": "alga-node-es6",
     "version": "1.0.0",
     "description": "",
-    "main": "dist/index.js",
+    "main": "node dist/index.js",
     "scripts": {
         "start": "dist/index.js",
-        "start-dev": "babel-node --presets es2015 src/index.js",
-        "start-es6": "node-es6 src/index.js",
-        "test": "echo \"Info: no test specified\" && exit 1",
-        "build": "gulp"
+        "start-dev": "node --harmony --require babel-register src/index.js",
+        "build": "gulp",
+        "test": "echo \"Info: no test specified\" && exit 1"
     },
     "repository": {
         "type": "git",
@@ -21,18 +20,19 @@
 
     },
     "devDependencies": {
-        "babel-cli": "^6.16.0",
-        "babel-preset-es2015": "^6.16.0",
+        "babel-plugin-transform-async-to-generator": "^6.24.1",
+        "babel-plugin-transform-runtime": "^6.23.0",
+        "babel-preset-es2015": "^6.24.1",
+        "babel-register": "^6.24.1",
+
         "del": "^2.2.2",
         "gulp": "^3.9.1",
         "gulp-add-src": "^0.2.0",
         "gulp-babel": "^6.1.2",
         "gulp-uglify": "^2.0.0",
-        "node-es6": "^0.3.1",
         "uglify-js": "^2.7.3"
     },
     "engines": {
-        "node": ">=6.7.0",
-        "npm": ">=3.10.3"
+        "node": ">=6.11.1"
     }
 }

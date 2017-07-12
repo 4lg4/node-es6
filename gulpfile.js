@@ -21,9 +21,7 @@ gulp.task('tasks',[
 
 gulp.task('compile', function(cb) {
     gulp.src(['src/**/*.js'])
-        .pipe(babel({
-            presets: ['es2015']
-        }))
+        .pipe(babel())
         .pipe(gulp.dest('./dist/'))
         .pipe(addsrc(['./dist/**/*.js']))
         .pipe(uglify())
